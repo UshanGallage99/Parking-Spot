@@ -1,0 +1,26 @@
+DROP DATABASE ParkingSpot;
+CREATE DATABASE ParkingSpot;
+
+USE ParkingSpot;
+
+CREATE TABLE CustomerD(
+	vehicleNum VARCHAR(20) NOT NULL,
+	OwnerName VARCHAR(50) NOT NULL,
+	Contact INT(10),
+	CONSTRAINT PRIMARY KEY (vehicleNum)
+);
+
+CREATE TABLE PaymentD(
+	PaymentID Int(5) NOT NULL,
+	vNum VARCHAR(20),
+	vehicleType VARCHAR(20) NOT NULL,
+	pdate VARCHAR(10),
+	arrivalTime VARCHAR(6),
+	departureTime VARCHAR(6),
+	Cash VARCHAR(10),
+	Card VARCHAR(10),
+	CashierID Int (5),
+	CONSTRAINT PRIMARY KEY (PaymentID),
+	CONSTRAINT FOREIGN Key (vNum) REFERENCES CustomerD(vehicleNum)
+);
+ 
